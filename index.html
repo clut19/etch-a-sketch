@@ -6,19 +6,24 @@
     <title>Etch-A-Sketch</title>
     <style>
         .insiders{
-            background-color: black;
-            width: 100px;
-            height: 100px;
+            background-color: white;
+            box-sizing: border-box;
+            border: solid black 1px;
         }
 
         #container{
             display: flex;
-            width: 400px;
-            height: 400px;
+            width: 720px;
             margin: 0 auto;
-            justify-content: center;
-            flex-direction: row;
             flex-wrap: wrap;
+            justify-content: center;
+        }
+        #input{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
 
         }
     </style>
@@ -26,9 +31,13 @@
 </head>
 <body>    
     <div id="container">
-
     </div>
-
+    <div id ="input">
+   
+        <label for="slide">Select your grid size!</label>
+        <input type="range" name="slide" min="2" max="100" value="10" id="slider">
+        <span class="currentValue"></span>
+    </div>
 
 
 
