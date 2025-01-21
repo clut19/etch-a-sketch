@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <style>
+        @font-face {
+            font-family: "Teacher";
+            src: url(Teacher.otf);
+        }
         .insiders{
             background-color: white;
             box-sizing: border-box;
@@ -14,9 +18,7 @@
         #container{
             display: flex;
             width: 720px;
-            margin: 0 auto;
             flex-wrap: wrap;
-            justify-content: center;
         }
         #input{
             display: flex;
@@ -24,21 +26,46 @@
             justify-content: center;
             align-items: center;
             padding-top: 30px;
-
+        }
+        #title{
+           display: flex;
+           flex-direction: column;
+           flex-shrink: 3;
+           padding-left: 75px;
+           font-family: "Teacher";
+           font-size: 75px;
+           justify-content: space-between;
+        }
+        #mainContainer{
+            display: flex;
+            justify-content: space-evenly;
         }
     </style>
 
 </head>
-<body>    
-    <div id="container">
-    </div>
-    <div id ="input">
-   
-        <label for="slide">Select your grid size!</label>
-        <input type="range" name="slide" min="2" max="100" value="10" id="slider">
-        <span class="currentValue"></span>
-    </div>
-
+<body>
+    <div id="mainContainer">
+        <div id="title">
+            <div style="align-self: flex-start; margin-bottom: -300px;">
+                <p style=>Etch Sketch</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+                <div><button>Black</button></div>
+                <div><button>Rainbow</button></div>
+                <div><button id = "clearBtn">Clear</button></div>
+            </div>
+            <div></div>
+        </div>
+        <div>
+            <div id="container">
+            </div>
+            <div id ="input">
+                <label for="slide">Select your grid size!</label>
+                <input type="range" name="slide" min="2" max="100" value="10" id="slider">
+                <span class="currentValue"></span>
+            </div>
+        </div>
+    </div>    
 
 
 

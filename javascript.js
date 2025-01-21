@@ -7,6 +7,7 @@ function deleteChild (){
     cont.innerHTML="";
 }
 
+
 for (i=0; i<=16*16-1; i++){
     let div = document.createElement("div");
     div.classList.add("insiders");
@@ -14,28 +15,30 @@ for (i=0; i<=16*16-1; i++){
     div.style.height = 720/16 + "px";
     cont.appendChild(div);
 }
+function startPainting(){
+    let items = document.querySelectorAll(".insiders");
+    let itemsArray = Array.from(items);
 
-let items = document.querySelectorAll(".insiders");
-let itemsArray = Array.from(items);
+    items.forEach(x =>{
+            x.addEventListener("mouseover", (e)=>{
+                isHover = true;
+                if(e.buttons === 1){
+                    x.style.backgroundColor = "black";
+                }
+            });
+    });
 
-items.forEach(x =>{
-        x.addEventListener("mouseover", (e)=>{
+    items.forEach(x =>{
+        x.addEventListener("mousedown", (e)=>{
+            e.preventDefault();
             isHover = true;
             if(e.buttons === 1){
                 x.style.backgroundColor = "black";
             }
         });
-});
-
-items.forEach(x =>{
-    x.addEventListener("mousedown", (e)=>{
-        e.preventDefault();
-        isHover = true;
-        if(e.buttons === 1){
-            x.style.backgroundColor = "black";
-        }
     });
-});
+}
+startPainting();
 
 whatValue.addEventListener ("change", (e)=>{
     currentValue.textContent = e.target.value;
@@ -68,7 +71,22 @@ whatValue.addEventListener ("change", (e)=>{
             }
         });
     });
-        
+       
 });
+
+const clearBtn = document.querySelector("#clearBtn");
+clearBtn.addEventListener("click", ()=>{
+    deleteChild();
+    for (i=0; i<=(parseInt(currentValue.textContent)*(parseInt(currentValue.textContent)))-1; i++){
+        let div = document.createElement("div");
+        div.classList.add("insiders");
+        div.style.width = 720/parseInt(currentValue.textContent) + "px";
+        div.style.height = 720/parseInt(currentValue.textContent) + "px";
+        cont.appendChild(div);
+    }
+    startPainting();
+});
+
+
 
 
