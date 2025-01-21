@@ -3,16 +3,20 @@ const whatValue = document.querySelector("#slider");
 const currentValue = document.querySelector("span");
 currentValue.textContent = 10;
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
 function deleteChild (){
     cont.innerHTML="";
 }
 
 
-for (i=0; i<=16*16-1; i++){
+for (i=0; i<=99; i++){
     let div = document.createElement("div");
     div.classList.add("insiders");
-    div.style.width = 720/16 + "px";
-    div.style.height = 720/16 + "px";
+    div.style.width = 720/10 + "px";
+    div.style.height = 720/10 + "px";
     cont.appendChild(div);
 }
 function startPainting(){
@@ -87,6 +91,41 @@ clearBtn.addEventListener("click", ()=>{
     startPainting();
 });
 
+const rainbowBtn = document.querySelector("#rainbowBtn");
+rainbowBtn.addEventListener("click",()=>{
+    let items = document.querySelectorAll(".insiders");
+    let itemsArray = Array.from(items);
 
+    items.forEach(x =>{
+            x.addEventListener("mouseover", (e)=>{
+                isHover = true;
+                if(e.buttons === 1){
+                    const one = getRandomArbitrary(0,255);
+                    const two = getRandomArbitrary(0,255);
+                    const three = getRandomArbitrary(0,255);
+                    x.style.backgroundColor = "rgb(" + one + "," + two + "," + three +")";
+                }
+            });
+    });
 
+    items.forEach(x =>{
+        x.addEventListener("mousedown", (e)=>{
+            e.preventDefault();
+            isHover = true;
+            if(e.buttons === 1){
+                const one = getRandomArbitrary(0,255);
+                const two = getRandomArbitrary(0,255);
+                const three = getRandomArbitrary(0,255);
+                x.style.backgroundColor = "rgb(" + one + "," + two + "," + three +")";
+            }
+        });
+    });
+
+});
+
+const blackBtn = document.querySelector("#blackBtn");
+blackBtn.addEventListener("click", ()=>{
+    startPainting();
+
+});
 
