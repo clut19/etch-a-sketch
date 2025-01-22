@@ -9,6 +9,9 @@
             font-family: "Teacher";
             src: url(Teacher.otf);
         }
+        *{
+            font-family: "Teacher";
+        }
         .insiders{
             background-color: white;
             box-sizing: border-box;
@@ -17,7 +20,7 @@
 
         #container{
             display: flex;
-            width: 720px;
+            width: 640px;
             flex-wrap: wrap;
         }
         #input{
@@ -37,8 +40,50 @@
            justify-content: space-between;
         }
         #mainContainer{
+            margin-top: 50px;
             display: flex;
             justify-content: space-evenly;
+        }
+        #slider{
+            appearance: none;
+            background-color: transparent;
+            width: calc(100% - (73px));
+            height:10px;
+            border-radius:5px;
+
+            cursor: pointer;
+            border: none;
+            --webkit-appearance: none;
+
+        }
+        #slider::-webkit-slider-runnable-track{
+            background-color: black;
+            height: 3px;
+            -webkit-appearance:none;
+             appearance:none;
+
+        }
+        #slider::-webkit-slider-thumb{
+            -webkit-appearance:none;
+            appearance:none;
+            width:20px;
+            height:20px;
+            border-radius:50%;
+            background-color: black;
+            cursor:pointer;
+            margin-top: -8.5px;
+        }
+        button{
+            background-color: black;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 
@@ -60,7 +105,7 @@
             <div id="container">
             </div>
             <div id ="input">
-                <label for="slide">Select your grid size!</label>
+                <label for="slide" style="font-size: 25px;">Grid Size</label>
                 <input type="range" name="slide" min="2" max="100" value="10" id="slider">
                 <span class="currentValue"></span>
             </div>

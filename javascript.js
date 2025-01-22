@@ -15,8 +15,8 @@ function deleteChild (){
 for (i=0; i<=99; i++){
     let div = document.createElement("div");
     div.classList.add("insiders");
-    div.style.width = 720/10 + "px";
-    div.style.height = 720/10 + "px";
+    div.style.width = 640/10 + "px";
+    div.style.height = 640/10 + "px";
     cont.appendChild(div);
 }
 function startPainting(){
@@ -50,8 +50,8 @@ whatValue.addEventListener ("change", (e)=>{
     for (i=0; i<=(e.target.value*e.target.value)-1; i++){
         let div = document.createElement("div");
         div.classList.add("insiders");
-        div.style.width = 720/e.target.value + "px";
-        div.style.height = 720/e.target.value + "px";
+        div.style.width = 640/e.target.value + "px";
+        div.style.height = 640/e.target.value + "px";
         cont.appendChild(div);
     }
     let items = document.querySelectorAll(".insiders");
@@ -84,8 +84,8 @@ clearBtn.addEventListener("click", ()=>{
     for (i=0; i<=(parseInt(currentValue.textContent)*(parseInt(currentValue.textContent)))-1; i++){
         let div = document.createElement("div");
         div.classList.add("insiders");
-        div.style.width = 720/parseInt(currentValue.textContent) + "px";
-        div.style.height = 720/parseInt(currentValue.textContent) + "px";
+        div.style.width = 640/parseInt(currentValue.textContent) + "px";
+        div.style.height = 640/parseInt(currentValue.textContent) + "px";
         cont.appendChild(div);
     }
     startPainting();
